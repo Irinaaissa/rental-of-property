@@ -1,0 +1,5 @@
+/* App.css */
+.appContainer {
+  display: flex;
+  flex-direction: row; /* Располагаем элементы в строку */
+}
