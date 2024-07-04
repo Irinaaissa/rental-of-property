@@ -1,7 +1,22 @@
 .boardList{
-    background-color: bisque;
+    background-color: rgb(207, 196, 255);
+    
+}
+.list{
+    
+    display: flex;
+    flex-direction: column; /* Додано */
+    gap: 24px;
+    
+    
     
 }
 .item{
-    gap: 32px;
+    
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 20px;
+    padding: 24px;
+    width: 840px;
+    background: #fff;
+    display: flex;
 }

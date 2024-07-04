@@ -1,5 +1,7 @@
 .board{
-
-width: 100%;
+    border: 1px solid rgba(16, 24, 40, 0.2);
+width: 888px;
 height: 100%;
+margin-right: 30px;
+margin-left: 30px;
 }

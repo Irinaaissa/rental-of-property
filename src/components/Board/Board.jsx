@@ -16,7 +16,7 @@ export default function Board() {
         <div className={css.board}>
             <BoardList cards={visibleCards} />
             {visibleCardsCount < cards.length && (
-                <button onClick={handleLoadMore}>Дивитися ще</button>
+                <button onClick={handleLoadMore}>Show more</button>
             )}
         </div>
     );

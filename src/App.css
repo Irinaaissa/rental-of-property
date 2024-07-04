@@ -8,3 +8,27 @@ margin: 0 auto;
   display: flex;
   flex-direction: row; 
 }
+#root {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+  background-color:  #fff;
+}
+
+:root{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+ 
+
+/*  */
+  /* --background-color: #F5DEB3; */
+  /* --link-color:#2f1c62; */
+  /* --text-color: ; */
+  /* --hover-color:#50504d; */
+  /* --first-color:; */
+  /* --primary-color:; */
+  /* --secondary-color:antiquewhite; */
+  
+
+}

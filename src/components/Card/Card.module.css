@@ -1,20 +1,94 @@
-.card{
-    border: 1px solid rgba(16, 24, 40, 0.2);
-border-radius: 20px;
-padding: 24px;
-min-width: 840px;
+.card {
 
- background: #fff;
- display: flex;
+
+
+
+
+    background: #fff;
+    display: flex;
 }
-.galleryImage{
+
+h2 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--main);
+}
+
+.galleryImage {
     border-radius: 10px;
-width: 290px;
-height: 310px;
+    width: 290px;
+    height: 310px;
 }
-.name{
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    align-items: center
+}
+
+.rating {
     display: flex;
 }
-.rating{
+
+.price {
+    font-family: var(--font-family);
+font-weight: 600;
+font-size: 24px;
+line-height: 125%;
+color: var(--main);
+    gap: 10px;
     display: flex;
+    align-items: baseline;
+    align-items: center
+}
+
+.cardInfo {
+    margin-left: 24px;
+    width: 526px;
+
+}
+
+.list {
+
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+}
+
+.listButton {
+    border-radius: 100px;
+    padding: 12px 18px;
+    width: 126px;
+    height: 44px;
+    background-color: var(--block-features);
+
+}
+
+.button {
+    margin-top: 24px;
+    border-radius: 200px;
+    padding: 16px 40px;
+    width: 166px;
+    height: 56px;
+    background: var(--button);
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+.text {
+    margin-top: 24px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text);
 }
