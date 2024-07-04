@@ -1,22 +1,28 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 import SideBar from './components/SideBar/SideBar'
-import Card from './components/Card/Card'
+import Board from './components/Board/Board';
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+
+ 
 
   return (
-    <>
+    
     <div className="appContainer">
-      
-      <SideBar/>
-      <Card/>
+      <SideBar />
+      <Board/>
     </div>
-    </>
-  )
+    
+  );
 }
+
 
 export default App
