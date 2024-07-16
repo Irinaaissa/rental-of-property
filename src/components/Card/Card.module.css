@@ -94,7 +94,7 @@ h2 {
     color: var(--text);
 }
 
-.icon {
+
     .icon {
         fill: none;
         /* Видаляє заливку всередині ікони */
@@ -105,7 +105,7 @@ h2 {
 
     }
 
-}
+
 
 .favorite {
     fill: red;

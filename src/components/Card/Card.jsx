@@ -163,11 +163,11 @@ export default function Card({
                                 width="16"
                                 height="16"
                                 aria-label="btn icon"
-                                fill="none"
-                                stroke="currentColor"
+                                fill="currentColor" 
+                                stroke="currentColor" 
                                 strokeWidth="2"
                             >
-                                <use href={`${spritePath}#icon-Route`} />
+                                <use href={`${spritePath}#icon-AC`} />
                             </svg>
                             {details.airConditioner} AC</button></li>
                     </ul>

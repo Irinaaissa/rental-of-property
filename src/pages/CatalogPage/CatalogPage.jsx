@@ -1,5 +1,5 @@
 
-import Catalog from "../components/Сatalog/Сatalog";
+import Catalog from "../../components/Сatalog/Сatalog";
 
 
 

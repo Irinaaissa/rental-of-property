@@ -46,3 +46,35 @@ color: var(--main);
     list-style-type: none;
     padding: 0;
 }
+.icon {
+    fill: none;
+    /* Видаляє заливку всередині ікони */
+    stroke: currentColor;
+    /* Встановлює колір обведення відповідно до кольору тексту */
+    stroke-width: 1px;
+    width:40px;
+    height:28px;
+}
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+}
+.listButton{
+    border: 1px solid rgba(16, 24, 40, 0.2);
+border-radius: 10px;
+padding: 17px 27px;
+width: 113px;
+height: 95px;
+display: flex;
+flex-direction: column;
+align-items: baseline;
+align-items: center;
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 125%;
+text-align: center;
+color: var(--main);
+}

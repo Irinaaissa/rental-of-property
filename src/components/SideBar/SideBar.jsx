@@ -1,14 +1,13 @@
-import Filters from "../Filters/Filters";
+import { useState } from 'react';
 import Input from "../Location/Location";
-import css from "./SideBar.module.css"
+import Filters from "../Filters/Filters";
+import css from "./SideBar.module.css";
 
-export default function SideBar(){
-  
-    return(
+export default function SideBar({ onFilterChange }) {
+    return (
         <div className={css.sideBar}>
-            
-            <Input/>
-            <Filters/>
+            <Input />
+            <Filters onFilterChange={onFilterChange} />
         </div>
-    )
+    );
 }
