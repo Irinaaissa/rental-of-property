@@ -1,25 +1,30 @@
-
-
-
-
-.img{
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Зробити контейнер на всю висоту батьківського елементу */
+}
+.img {
     gap: 12px;
     width: 902px;
     justify-content: center;
     display: flex;
     border-radius: 10px;
-margin-top: 24px;
+    margin-top: 24px;
 
 }
-.galleryImage{
-   
+
+.galleryImage {
+
     width: 290px;
     height: 310px;
 }
-.rating{
-display: flex;
-gap: 12px;
+
+.rating {
+    display: flex;
+    gap: 12px;
 }
+
 .price {
     font-family: var(--font-family);
     font-weight: 600;
@@ -27,25 +32,43 @@ gap: 12px;
     line-height: 125%;
     color: var(--main);
 }
-.list{
-display: flex;
-align-items: center;
-gap: 48px;
-width: 902px;
-height: 48px;
-border-bottom: 1px solid black;
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    width: 902px;
+    height: 48px;
+    border-bottom: 1px solid black;
 }
-.listButton{
+
+.listButton {
     font-family: var(--font-family);
-font-weight: 600;
-font-size: 20px;
-line-height: 120%;
-color: var(--main);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--main);
 }
-.description{
+
+.description {
     margin-top: 24px;
     width: 902px;
 }
-.details{
+
+.details {
     margin-top: 44px;
+    flex-grow: 1; /* Додати це, щоб секція details займала весь доступний простір */
+    overflow-y: auto; /* Додати вертикальну прокрутку */
+}
+.reviewsContainer {
+    display: flex;
+    flex-grow: 1; /* Зробити контейнер відгуків розтягнутим */
+    overflow-y: auto; /* Додати вертикальну прокрутку */
+    background:#fff;
+   
+   
+   
+}
+.reviewsList{
+    width: 430px;
 }

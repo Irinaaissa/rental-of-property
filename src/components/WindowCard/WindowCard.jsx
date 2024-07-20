@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import css from "./WindowCard.module.css";
+import ReviewsList from '../ReviewsList/ReviewsList';
+import BookingForm from '../BookingForm/BookingForm';
 
 export default function WindowCard({
     _id,
@@ -21,7 +23,11 @@ export default function WindowCard({
     details,
     gallery,
     reviews,
+    catalogs, 
+    onClose
 }) {
+    const [activeWin, setActiveWin] = useState(null);
+
     return (
         <div className={css.container}>
             <div>
@@ -33,22 +39,42 @@ export default function WindowCard({
                 <p>{location}</p>
             </div>
             <div className={css.price}>
-    <p>{price}</p>
-    </div>
+                <p>{price}</p>
+            </div>
             <div className={css.img}>
                 {gallery && gallery.length > 0 && gallery.map((image, index) => (
                     <img key={index} src={image} alt={`${name} image ${index + 1}`} className={css.galleryImage} />
                 ))}
             </div>
             <div className={css.description}>
-            <p>{description}</p>
+                <p>{description}</p>
             </div>
             <div className={css.details}>
-            <ul className={css.list}>
-
-                <li> <button className={css.listButton}>Features</button></li>
-                <li> <button className={css.listButton}>Reviews</button></li>
-            </ul>
+                <ul className={css.list}>
+                    <li>
+                        <button className={css.listButton}>Features</button>
+                    </li>
+                    <li>
+                        <button className={css.listButton} onClick={() => setActiveWin('reviews')}>Reviews</button>
+                    </li>
+                </ul>
+                {activeWin === 'reviews' && reviews && reviews.length > 0 && (
+                    <div className={css.reviewsContainer}>
+                        <div className={css.reviewsList}> 
+                        <ReviewsList reviews={reviews} />
+                        </div>
+                        
+                        <div>
+                        <BookingForm />
+                        </div>
+                        
+                    </div>
+                )}
+                {activeWin === 'reviews' && reviews && reviews.length === 0 && (
+                    <div className={css.reviewsContainer}>
+                        <p>No reviews available.</p>
+                    </div>
+                )}
             </div>
         </div>
     );
