@@ -12,6 +12,22 @@ export default function ModalWindow({ handleModalClose, activeCardId }) {
         setActiveCard(card);
     }, [activeCardId]);
 
+    useEffect(() => {
+        // Додаємо обробник події для закриття модального вікна при натисканні клавіші Escape
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                handleModalClose();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            // Видаляємо обробник події при демонтажі компонента
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [handleModalClose]);
+
     const handleCloseModal = () => {
         handleModalClose();
     };

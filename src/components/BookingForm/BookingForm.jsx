@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import * as Yup from 'yup';
 import css from './BookingForm.module.css';
-// import spritePath from '../../assets/react.svg'; // Імпортуємо SVG sprite
 import { CiCalendar } from "react-icons/ci";
 
 const BookingFormSchema = Yup.object().shape({
@@ -26,7 +25,7 @@ export default function BookingForm() {
                 <h2>Book your campervan now</h2>
                 <p>Stay connected! We are always ready to help you.</p>
             </div>
-            <div>
+            <div className={css.bookingFormsk}>
                 <Formik
                     initialValues={{
                         name: "",
@@ -41,30 +40,27 @@ export default function BookingForm() {
                 >
                     {({ setFieldValue, values }) => (
                         <Form className={css.bookingForm}>
-                            <div>
-                                <Field id="name" name="name" placeholder="Name" />
+                            <div className={css.fieldContainer}>
+                                <Field id="name" name="name" placeholder="Name" className={css.fieldInput} />
                                 <ErrorMessage name="name" component="div" className={css.error} />
                             </div>
-                            <div>
-                                <Field id="email" name="email" type="email" placeholder="Email" />
+                            <div className={css.fieldContainer}>
+                                <Field id="email" name="email" type="email" placeholder="Email" className={css.fieldInput} />
                                 <ErrorMessage name="email" component="div" className={css.error} />
                             </div>
-                            <div className={css.datePickerContainer}>
+                            <div className={css.dateContainer}>
                                 <DatePicker
                                     selected={values.date}
                                     onChange={date => setFieldValue('date', date)}
                                     placeholderText="Booking date"
-                                    className={css.datePicker}
                                     customInput={<CustomInput />}
-                                    
                                 />
-                                
                                 <ErrorMessage name="date" component="div" className={css.error} />
                             </div>
-                            <div>
-                                <Field id="comment" name="comment" as="textarea" placeholder="Comment" />
+                            <div className={css.fieldContainer}>
+                                <Field id="comment" name="comment" as="textarea" placeholder="Comment" className={css.fieldInput} />
                             </div>
-                            <div >
+                            <div>
                                 <button type="submit" className={css.button}>Send</button>
                             </div>
                         </Form>
@@ -77,7 +73,7 @@ export default function BookingForm() {
 
 const CustomInput = React.forwardRef(({ value, onClick }, ref) => (
     <div className={css.customDateInput} onClick={onClick} ref={ref}>
-        <input value={value} readOnly placeholder="Booking date" />
-        <CiCalendar />
+        <input value={value} readOnly placeholder="Booking date" className={css.dateInput} />
+        <CiCalendar className={css.calendarIcon} />
     </div>
 ));

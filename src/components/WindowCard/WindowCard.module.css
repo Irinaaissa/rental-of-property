@@ -1,4 +1,6 @@
 .container {
+   
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -58,12 +60,12 @@
 .details {
     margin-top: 44px;
     flex-grow: 1; /* Додати це, щоб секція details займала весь доступний простір */
-    overflow-y: auto; /* Додати вертикальну прокрутку */
+     /* Додати вертикальну прокрутку */
 }
 .reviewsContainer {
     display: flex;
     flex-grow: 1; /* Зробити контейнер відгуків розтягнутим */
-    overflow-y: auto; /* Додати вертикальну прокрутку */
+     /* Додати вертикальну прокрутку */
     background:#fff;
    
    
@@ -71,4 +73,7 @@
 }
 .reviewsList{
     width: 430px;
+}
+.featuresContainer{
+    display: flex;
 }

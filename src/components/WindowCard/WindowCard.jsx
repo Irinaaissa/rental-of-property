@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import css from "./WindowCard.module.css";
 import ReviewsList from '../ReviewsList/ReviewsList';
 import BookingForm from '../BookingForm/BookingForm';
+import Features from '../Features/Features';
 
 export default function WindowCard({
     _id,
@@ -23,7 +24,7 @@ export default function WindowCard({
     details,
     gallery,
     reviews,
-    catalogs, 
+    catalogs,
     onClose
 }) {
     const [activeWin, setActiveWin] = useState(null);
@@ -52,27 +53,50 @@ export default function WindowCard({
             <div className={css.details}>
                 <ul className={css.list}>
                     <li>
-                        <button className={css.listButton}>Features</button>
+                        <button className={css.listButton} onClick={() => setActiveWin('features')}>Features</button>
                     </li>
                     <li>
                         <button className={css.listButton} onClick={() => setActiveWin('reviews')}>Reviews</button>
                     </li>
                 </ul>
-                {activeWin === 'reviews' && reviews && reviews.length > 0 && (
-                    <div className={css.reviewsContainer}>
-                        <div className={css.reviewsList}> 
-                        <ReviewsList reviews={reviews} />
-                        </div>
-                        
+
+                {activeWin === 'features' && (
+                    <div className={css.featuresContainer}>
                         <div>
-                        <BookingForm />
+                            <Features
+                                form={form}
+                                length={length}
+                                width={width}
+                                height={height}
+                                tank={tank}
+                                consumption={consumption}
+                                adults={adults}
+                                children={children}
+                                engine={engine}
+                                transmission={transmission}
+                                details={details}
+                            />
                         </div>
-                        
+
+                        <div>
+                            <BookingForm />
+                        </div>
                     </div>
                 )}
-                {activeWin === 'reviews' && reviews && reviews.length === 0 && (
+
+                {activeWin === 'reviews' && (
                     <div className={css.reviewsContainer}>
-                        <p>No reviews available.</p>
+                        {reviews && reviews.length > 0 ? (
+                            <div className={css.reviewsList}>
+                                <ReviewsList reviews={reviews} />
+                            </div>
+                        ) : (
+                            <p>No reviews available.</p>
+                        )}
+
+                        <div>
+                            <BookingForm />
+                        </div>
                     </div>
                 )}
             </div>

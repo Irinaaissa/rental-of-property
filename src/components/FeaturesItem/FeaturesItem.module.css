@@ -1,0 +1,120 @@
+.card {
+
+
+
+
+
+    background: #fff;
+    display: flex;
+}
+
+h2 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--main);
+}
+
+.galleryImage {
+    border-radius: 10px;
+    width: 290px;
+    height: 310px;
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    align-items: center
+}
+
+.rating {
+    display: flex;
+}
+
+.price {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--main);
+    gap: 10px;
+    display: flex;
+    align-items: baseline;
+    align-items: center
+}
+
+.cardInfo {
+    margin-left: 24px;
+    width: 526px;
+
+}
+
+.list {
+
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+}
+
+.listButton {
+    border-radius: 100px;
+padding: 12px 18px;
+width: 121px;
+height: 44px;
+background: var(--block-features);
+mix-blend-mode: multiply;
+
+}
+
+.button {
+    margin-top: 24px;
+    border-radius: 200px;
+    padding: 16px 40px;
+    width: 166px;
+    height: 56px;
+    background: var(--button);
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #fff;
+
+}
+
+.text {
+    margin-top: 24px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text);
+}
+
+
+    .icon {
+        fill: none;
+        /* Видаляє заливку всередині ікони */
+        stroke: currentColor;
+        /* Встановлює колір обведення відповідно до кольору тексту */
+        stroke-width: 1px;
+
+
+    }
+
+
+
+.favorite {
+    fill: red;
+}
+
+.iconButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
