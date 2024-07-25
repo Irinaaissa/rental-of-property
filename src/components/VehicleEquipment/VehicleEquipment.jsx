@@ -52,7 +52,8 @@ export default function VehicleEquipment({ details, form, onApplyFilters }) {
                             </li>
                         )
                     ))}
-                </ul>
+                </ul> 
+                
 
                 <p className={css.text}>Vehicle type</p>
                 <ul className={css.list}>

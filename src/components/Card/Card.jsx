@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorite, deleteFromFavorite } from '../../redux/catalog/slice'; // Імпортуйте action
 import css from "./Card.module.css";
 import spritePath from '../../assets/react.svg';
 import ModalWindow from '../ModalWindow/ModalWindow';
+import { iconCard } from '../Helpers/equipmentList';
+import { selectFavoriteIds } from '../../redux/catalog/selectors'; // Імпортуйте селектор
 
 export default function Card({
     _id,
@@ -18,34 +22,19 @@ export default function Card({
     gallery,
     reviews,
 }) {
-    const [isModalActive, setModalActive] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    useEffect(() => {
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        if (storedFavorites.includes(_id)) {
-            setIsFavorite(true);
-        }
-    }, [_id]);
-
-    useEffect(() => {
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        if (isFavorite) {
-            if (!storedFavorites.includes(_id)) {
-                storedFavorites.push(_id);
-            }
-        } else {
-            const index = storedFavorites.indexOf(_id);
-            if (index !== -1) {
-                storedFavorites.splice(index, 1);
-            }
-        }
-        localStorage.setItem('favorites', JSON.stringify(storedFavorites));
-    }, [isFavorite, _id]);
+    const dispatch = useDispatch();
+    const favoriteIds = useSelector(selectFavoriteIds);
+    const isFavorite = favoriteIds.includes(_id);
 
     const handleClick = () => {
-        setIsFavorite(!isFavorite);
+        if (isFavorite) {
+            dispatch(deleteFromFavorite(_id));
+        } else {
+            dispatch(addToFavorite(_id));
+        }
     };
+
+    const [isModalActive, setModalActive] = useState(false);
 
     const handleModalOpen = () => {
         setModalActive(true);
@@ -84,86 +73,36 @@ export default function Card({
                 </div>
                 <div className={css.rating}>
                     <p>{rating}</p>
-                    <p>(Reviews)</p>
+                    <p>({reviews.length} Reviews)</p>
                     <p>{location}</p>
                 </div>
                 <p className={css.text}>The pictures shown here are example vehicles of the respective.</p>
                 <div>
                     <ul className={css.list}>
-                        <li><button className={css.listButton}>
-                            <svg
-                                className={css.icon}
-                                width="16"
-                                height="16"
-                                aria-label="btn icon"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                            >
-                                <use href={`${spritePath}#icon-Vertical-container`} />
-                            </svg>
-                            {adults} adults</button></li>
-                        <li><button className={css.listButton}><svg
-                            className={css.icon}
-                            width="16"
-                            height="16"
-                            aria-label="btn icon"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                        >
-                            <use href={`${spritePath}#icon-Container`} />
-                        </svg>{transmission}</button></li>
-                        <li><button className={css.listButton}>
-                            <svg
-                                className={css.icon}
-                                width="16"
-                                height="16"
-                                aria-label="btn icon"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                            >
-                                <use href={`${spritePath}#icon-Vertical-container-1`} />
-                            </svg>
-                            {engine}</button></li>
-                        <li><button className={css.listButton}>
-                            <svg
-                                className={css.icon}
-                                width="16"
-                                height="16"
-                                aria-label="btn icon"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                            >
-                                <use href={`${spritePath}#icon-Horizontal-container`} />
-                            </svg>
-                            {details.kitchen} kitchen</button></li>
-                        <li><button className={css.listButton}><svg
-                            className={css.icon}
-                            width="16"
-                            height="16"
-                            aria-label="btn icon"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                        >
-                            <use href={`${spritePath}#icon-beds`} />
-                        </svg>{details.beds} beds</button></li>
-                        <li><button className={css.listButton}>
-                            <svg
-                                className={css.icon}
-                                width="16"
-                                height="16"
-                                aria-label="btn icon"
-                                fill="currentColor" 
-                                stroke="currentColor" 
-                                strokeWidth="2"
-                            >
-                                <use href={`${spritePath}#icon-AC`} />
-                            </svg>
-                            {details.airConditioner} AC</button></li>
+                        {iconCard.map((item, index) => (
+                            (item.key in details || ['adults', 'children', 'engine', 'transmission'].includes(item.key)) && 
+                            (details[item.key] !== 0 || item.key === 'adults' || item.key === 'children' || item.key === 'engine' || item.key === 'transmission') && (
+                                <li key={index}>
+                                    <button className={css.listButton}>
+                                        <svg
+                                            className={css.icon}
+                                            width="16"
+                                            height="16"
+                                            aria-label="btn icon"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                        >
+                                            <use href={`${spritePath}#${item.icon}`} />
+                                        </svg>
+                                        {(item.key === 'airConditioner' || item.key === 'kitchen') 
+                                            ? (details[item.key] > 0 ? item.label : '') 
+                                            : (details[item.key] || (item.key === 'adults' && adults) || (item.key === 'children' && children) || (item.key === 'engine' && engine) || (item.key === 'transmission' && transmission))} 
+                                        {(item.key !== 'airConditioner' && item.key !== 'kitchen') && item.label}
+                                    </button>
+                                </li>
+                            )
+                        ))}
                     </ul>
                 </div>
                 <button className={css.button} type="button" onClick={handleModalOpen}>Show more</button>

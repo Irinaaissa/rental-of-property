@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import spritePath from '../../assets/react.svg';
 import css from "./FeaturesItem.module.css";
@@ -22,8 +20,9 @@ export default function FeaturesItem({
         <div>
             <div>
                 <ul className={css.list}>
-                    {equipmentList.map((item, index) => (
-                        details[item.key] && details[item.key] !== 0 && (
+                    {equipmentList.map((item, index) => {
+                        const value = details[item.key];
+                        return value !== undefined && value !== null && value !== 0 ? (
                             <li key={index}>
                                 <button className={css.listButton}>
                                     <svg
@@ -37,25 +36,42 @@ export default function FeaturesItem({
                                     >
                                         <use href={`${spritePath}#${item.icon}`} />
                                     </svg>
-                                    {details[item.key]} {item.label}
+                                    {value} {item.label}
                                 </button>
                             </li>
-                        )
-                    ))}
+                        ) : null;
+                    })}
                 </ul>
             </div>
             <div>
-                <h2>Vehicle details</h2>
-                <ul>
-                    <li>Form: {form}</li>
-                    <li>Length: {length}</li>
-                    <li>Width: {width}</li>
-                    <li>Height: {height}</li>
-                    <li>Tank: {tank}</li>
-                    <li>Consumption: {consumption}</li>
-                </ul>
+                <h2 className={css.vehicleDetails}>Vehicle details</h2>
+                <table className={css.products}>
+                    <tr>
+                        <td>Form</td>
+                        <td>{form}</td>
+                    </tr>
+                    <tr>
+                        <td>Length</td>
+                        <td>{length}</td>
+                    </tr>
+                    <tr>
+                        <td>Width</td>
+                        <td>{width}</td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>{height}</td>
+                    </tr>
+                    <tr>
+                        <td>Tank</td>
+                        <td>{tank}</td>
+                    </tr>
+                    <tr>
+                        <td>Consumption</td>
+                        <td>{consumption}</td>
+                    </tr>
+                </table>
             </div>
         </div>
     );
 }
-

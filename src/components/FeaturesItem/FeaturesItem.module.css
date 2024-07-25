@@ -118,3 +118,56 @@ mix-blend-mode: multiply;
     padding: 0;
     cursor: pointer;
 }
+.listDetails{
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+.listDetailsList{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    text-align: center;
+    color: var(--main);
+}
+.vehicleDetails{
+    margin-top: 44px;
+    margin-bottom: 24px;
+}
+  
+  .products {
+    border-top: 1px solid rgba(16, 24, 40, 0.1);/* Вирівнює текст у першій колонці по лівому краю */
+    width: 100%;
+  }
+  
+  
+  .products td {
+    
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 133%;
+    text-align:unset;
+    color: var(--main); 
+  }
+  
+  
+  
+  .products td {
+    padding: 8px; /* Додає відступи для кращого вигляду */
+  }
+  
+  .products td:first-child {
+    text-align: left; 
+    
+  }
+  
+  .products td:last-child {
+    text-align: right; /* Вирівнює текст у останній колонці по правому краю */
+  }
+  
