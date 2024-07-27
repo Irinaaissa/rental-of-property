@@ -101,6 +101,8 @@ h2 {
         stroke: currentColor;
         /* Встановлює колір обведення відповідно до кольору тексту */
         stroke-width: 1px;
+        
+        margin-right: 3px;
 
 
     }
@@ -116,4 +118,8 @@ h2 {
     border: none;
     padding: 0;
     cursor: pointer;
+}
+.reviews {
+    text-decoration: underline;
+    margin-right: 12px;
 }

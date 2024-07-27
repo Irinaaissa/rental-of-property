@@ -48,17 +48,18 @@ export default function BookingForm() {
                                 <Field id="email" name="email" type="email" placeholder="Email" className={css.fieldInput} />
                                 <ErrorMessage name="email" component="div" className={css.error} />
                             </div>
-                            <div className={css.dateContainer}>
+                            
                                 <DatePicker
                                     selected={values.date}
                                     onChange={date => setFieldValue('date', date)}
                                     placeholderText="Booking date"
                                     customInput={<CustomInput />}
+                                    className={css.dateContainer}
                                 />
                                 <ErrorMessage name="date" component="div" className={css.error} />
-                            </div>
+                            
                             <div className={css.fieldContainer}>
-                                <Field id="comment" name="comment" as="textarea" placeholder="Comment" className={css.fieldInput} />
+                                <Field id="comment" name="comment" as="textarea" placeholder="Comment" className={css.textarea} />
                             </div>
                             <div>
                                 <button type="submit" className={css.button}>Send</button>

@@ -31,7 +31,9 @@ const catalogsSlice = createSlice({
             state.items = [];
         },
         setFilters(state, action) {
-            state.filters = action.payload;
+            state.filters = Array.isArray(action.payload) ? action.payload : [];
+            state.currentPage = 1; // Reset page to 1 when filters change
+            state.catalogs = []; // Clear catalogs when filters change
         },
         addToFavorite(state, action) {
             const camperId = action.payload;

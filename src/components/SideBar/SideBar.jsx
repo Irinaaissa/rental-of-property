@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import Input from "../Location/Location";
 import Filters from "../Filters/Filters";
 import css from "./SideBar.module.css";

@@ -4,8 +4,9 @@ import { addToFavorite, deleteFromFavorite } from '../../redux/catalog/slice'; /
 import css from "./Card.module.css";
 import spritePath from '../../assets/react.svg';
 import ModalWindow from '../ModalWindow/ModalWindow';
-import { iconCard } from '../Helpers/equipmentList';
+import { formatPrice, iconCard } from '../Helpers/equipmentList';
 import { selectFavoriteIds } from '../../redux/catalog/selectors'; // Імпортуйте селектор
+import EllipsisText from '../EllipsisText/EllipsisText';
 
 export default function Card({
     _id,
@@ -20,8 +21,10 @@ export default function Card({
     description,
     details,
     gallery,
+
     reviews,
 }) {
+
     const dispatch = useDispatch();
     const favoriteIds = useSelector(selectFavoriteIds);
     const isFavorite = favoriteIds.includes(_id);
@@ -55,7 +58,7 @@ export default function Card({
                 <div className={css.name}>
                     <h2>{name}</h2>
                     <div className={css.price}>
-                        <p>{price}</p>
+                        <p>{formatPrice(price)}</p>
                         <button onClick={handleClick} className={css.iconButton}>
                             <svg
                                 className={`${css.icon} ${isFavorite ? css.favorite : ''}`}
@@ -72,15 +75,46 @@ export default function Card({
                     </div>
                 </div>
                 <div className={css.rating}>
-                    <p>{rating}</p>
-                    <p>({reviews.length} Reviews)</p>
-                    <p>{location}</p>
+                    <p>
+                        <svg
+                            className={css.icon}
+                            width="16"
+                            height="16"
+                            aria-label="btn icon"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <use href={`${spritePath}#icon1-star`} />
+                        </svg>
+                        {rating}
+                    </p>
+                    <p className={css.reviews}>({reviews.length} Reviews)</p>
+                    <p className={css.location}>
+                        <svg
+                            className={css.icon}
+                            width="16"
+                            height="16"
+                            aria-label="location icon"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <use href={`${spritePath}#map-pin`} />
+                        </svg>
+                        {location}
+                    </p>
                 </div>
-                <p className={css.text}>The pictures shown here are example vehicles of the respective.</p>
+
+                <EllipsisText
+                    text={description}
+                    maxLines={1}
+                    className={css.text}
+                />
                 <div>
                     <ul className={css.list}>
                         {iconCard.map((item, index) => (
-                            (item.key in details || ['adults', 'children', 'engine', 'transmission'].includes(item.key)) && 
+                            (item.key in details || ['adults', 'children', 'engine', 'transmission'].includes(item.key)) &&
                             (details[item.key] !== 0 || item.key === 'adults' || item.key === 'children' || item.key === 'engine' || item.key === 'transmission') && (
                                 <li key={index}>
                                     <button className={css.listButton}>
@@ -95,9 +129,9 @@ export default function Card({
                                         >
                                             <use href={`${spritePath}#${item.icon}`} />
                                         </svg>
-                                        {(item.key === 'airConditioner' || item.key === 'kitchen') 
-                                            ? (details[item.key] > 0 ? item.label : '') 
-                                            : (details[item.key] || (item.key === 'adults' && adults) || (item.key === 'children' && children) || (item.key === 'engine' && engine) || (item.key === 'transmission' && transmission))} 
+                                        {(item.key === 'airConditioner' || item.key === 'kitchen')
+                                            ? (details[item.key] > 0 ? item.label : '')
+                                            : (details[item.key] || (item.key === 'adults' && adults) || (item.key === 'children' && children) || (item.key === 'engine' && engine) || (item.key === 'transmission' && transmission))}
                                         {(item.key !== 'airConditioner' && item.key !== 'kitchen') && item.label}
                                     </button>
                                 </li>

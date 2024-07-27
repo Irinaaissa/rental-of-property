@@ -1,17 +1,17 @@
 export const equipmentList = [
     { icon: 'icon-airconditioner', label: 'AC', key: 'airConditioner' },
-    { icon: 'icon-Vertical', label: 'vbathroom', key: 'bathroom' },
+    
     { icon: 'icon-kitchen', label: 'kitchen', key: 'kitchen' },
     { icon: 'icon-beds', label: 'beds', key: 'beds' },
-    { icon: 'icon-Vertical-3', label: 'TV', key: 'TV' },
+    { icon: 'icon-tv', label: 'TV', key: 'TV' },
     { icon: 'icon-cd', label: 'CD', key: 'CD' },
-    { icon: 'icon-Vertical-c', label: 'radio', key: 'radio' },
+    { icon: 'icon-radio', label: 'radio', key: 'radio' },
     { icon: 'icon-shower', label: 'shower', key: 'shower' },
     { icon: 'icon-toilet', label: 'toilet', key: 'toilet' },
     { icon: 'icon-freezer', label: 'freezer', key: 'freezer' },
     { icon: 'icon-hob', label: 'hob', key: 'hob' },
     { icon: 'icon-mdi_gas', label: 'gas', key: 'gas' },
-    { icon: 'icon-microwave', label: 'microwave', key: 'microwave' }
+    { icon: 'cat-microwave', label: 'microwave', key: 'microwave' }
 ];
 
 
@@ -30,3 +30,12 @@ export const iconCard = [
     { icon: 'icon-form', label: 'AC', key: 'airConditioner' },
 
 ];
+export const formatPrice = (amount) => {
+    return new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'EUR',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+        useGrouping: false
+    }).format(amount);
+};

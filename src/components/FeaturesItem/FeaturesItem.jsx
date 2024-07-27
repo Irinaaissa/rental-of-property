@@ -36,7 +36,7 @@ export default function FeaturesItem({
                                     >
                                         <use href={`${spritePath}#${item.icon}`} />
                                     </svg>
-                                    {value} {item.label}
+                                     {item.label}
                                 </button>
                             </li>
                         ) : null;

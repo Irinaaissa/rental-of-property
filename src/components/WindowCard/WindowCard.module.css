@@ -24,7 +24,10 @@
 
 .rating {
     display: flex;
-    gap: 12px;
+   
+    margin-bottom: 12px;
+    margin-top: 12px;
+
 }
 
 .price {
@@ -76,4 +79,14 @@
 }
 .featuresContainer{
     display: flex;
+}
+.iconButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.reviews {
+    text-decoration: underline;
+    margin-right: 12px;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BoardList from '../BoardList/BoardList';
 import css from './Board.module.css';
@@ -7,26 +7,22 @@ import {
     selectCatalogs,
     selectCurrentPage,
     selectError,
-    selectFilters,
     selectLoading,
     selectMoreToLoad,
     selectPerPage
 } from '../../redux/catalog/selectors';
-import { incrementPage } from '../../redux/catalog/slice';
+import { incrementPage, setFilters } from '../../redux/catalog/slice';
 
-export default function Board() {
+export default function Board({ filters }) {
     const dispatch = useDispatch();
 
-    // Використання селекторів для отримання даних з Redux state
     const catalogs = useSelector(selectCatalogs);
     const loading = useSelector(selectLoading);
     const error = useSelector(selectError);
     const currentPage = useSelector(selectCurrentPage);
     const perPage = useSelector(selectPerPage);
     const moreToLoad = useSelector(selectMoreToLoad);
-    const filters = useSelector(selectFilters);
 
-    // Ініціювання асинхронної дії при монтуванні компонента
     useEffect(() => {
         dispatch(fetchCatalogsPage({ page: currentPage, limit: perPage, filters }));
     }, [dispatch, currentPage, perPage, filters]);
@@ -36,16 +32,11 @@ export default function Board() {
         dispatch(incrementPage());
     };
 
-    const [filtersOpen, setFiltersOpen] = useState(false);
-    const handleFilters = () => {
-        setFiltersOpen(!filtersOpen);
-    };
-
     return (
         <div className={css.board}>
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
-            {catalogs && catalogs.length > 0 ? (  // Перевірка на наявність catalogs перед використанням
+            {catalogs && catalogs.length > 0 ? (
                 <>
                     <BoardList catalogs={catalogs} />
                     {moreToLoad && (

@@ -3,6 +3,8 @@ import css from "./WindowCard.module.css";
 import ReviewsList from '../ReviewsList/ReviewsList';
 import BookingForm from '../BookingForm/BookingForm';
 import Features from '../Features/Features';
+import { formatPrice } from '../Helpers/equipmentList';
+import spritePath from '../../assets/react.svg';
 
 export default function WindowCard({
     _id,
@@ -35,12 +37,38 @@ export default function WindowCard({
                 <h2>{name}</h2>
             </div>
             <div className={css.rating}>
-                <p>{rating}</p>
-                <p>({reviews.length} Reviews)</p>
-                <p>{location}</p>
+                <p>
+                    <svg
+                        className={css.icon}
+                        width="16"
+                        height="16"
+                        aria-label="btn icon"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <use href={`${spritePath}#icon1-star`} />
+                    </svg>
+                    {rating}
+                </p>
+                <p className={css.reviews}>({reviews.length} Reviews)</p>
+                <p className={css.location}>
+                    <svg
+                        className={css.icon}
+                        width="16"
+                        height="16"
+                        aria-label="location icon"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <use href={`${spritePath}#map-pin`} />
+                    </svg>
+                    {location}
+                </p>
             </div>
             <div className={css.price}>
-                <p>{price}</p>
+                <p>{formatPrice(price)}</p>
             </div>
             <div className={css.img}>
                 {gallery && gallery.length > 0 && gallery.map((image, index) => (

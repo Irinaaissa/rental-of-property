@@ -1,4 +1,4 @@
-.bookingFormContainer {
+/* .bookingFormContainer {
     margin-top: 44px;
     margin-left: 40px;
     border: 1px solid rgba(16, 24, 40, 0.2);
@@ -11,17 +11,19 @@
     margin-top: 24px;
 }
 .bookingForm div {
-    margin-bottom: 14px; /* Відступ між інпутами */
+    margin-bottom: 14px; 
 }
 
 .fieldContainer {
     display: flex;
     flex-direction: column;
     
+    
 }
 .dateContainer{
     height: 70px;
     width: 100%;
+    background: var(--inputs);
 }
 
 .fieldInput
@@ -31,10 +33,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 56px;
+    background: var(--inputs);
 }
-/* .dateInput { */
-    /* height: 30px; */
-/* } */
 .bookingForm textarea {
     height: 114px;
 }
@@ -51,7 +51,7 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 424px; /* Встановлено однакову ширину з іншими полями */
+    width: 424px; 
     cursor: pointer;
     height: 56px;
 }
@@ -59,7 +59,7 @@
 .customDateInput input {
     border: none;
     outline: none;
-    width: 100%; /* Внутрішній інпут займає всю ширину контейнера */
+    width: 100%; 
 }
 
 .calendarIcon {
@@ -70,6 +70,109 @@
 
 .button {
     
+    margin-bottom: 24px;
+    border-radius: 200px;
+    padding: 16px 60px;
+    width: 166px;
+    height: 56px;
+    background: var(--button);
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #fff;
+    cursor: pointer;
+}
+.dateInput{
+    background: var(--inputs);
+} */
+.bookingFormContainer {
+    margin-top: 44px;
+    margin-left: 40px;
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 10px;
+    padding: 24px;
+    width: 448px;
+    height: 532px;
+}
+
+.bookingFormsk {
+    margin-top: 24px;
+}
+
+/* .bookingForm div { */
+    /* margin-bottom: 14px; */
+/* } */
+
+.fieldContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.dateContainer {
+    height: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.fieldInput {
+    width: 424px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 56px;
+    background: var(--inputs);
+    margin-bottom: 14px;
+}
+.textarea{
+    margin-top: 14px;
+    margin-bottom: 14px;
+    
+    width: 424px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 56px;
+    background: var(--inputs);  
+}
+.bookingForm textarea {
+    height: 114px; 
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.customDateInput {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 424px; /* Встановлено однакову ширину з іншими полями */
+    height: 56px; /* Встановлено однакову висоту з іншими полями */
+    background: var(--inputs);
+    cursor: pointer;
+}
+
+.customDateInput input {
+    border: none;
+    outline: none;
+    width: 100%; /* Внутрішній інпут займає всю ширину контейнера */
+    background: var(--inputs); /* Фон інпуту */
+}
+
+.calendarIcon {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+}
+
+.button {
     margin-bottom: 24px;
     border-radius: 200px;
     padding: 16px 60px;
