@@ -13,12 +13,18 @@ export const equipmentList = [
     { icon: 'icon-mdi_gas', label: 'gas', key: 'gas' },
     { icon: 'cat-microwave', label: 'microwave', key: 'microwave' }
 ];
-
+export const equipmentFilterIcons = [
+    { icon: 'icon-kitchen', label: 'kitchen', key: 'kitchen' },
+    { icon: 'icon-transmission', label: 'Automatic', key: 'transmission' },
+    { icon: 'icon-tv', label: 'TV', key: 'TV' },
+    { icon: 'icon-airconditioner', label: 'Conditioner', key: 'airConditioner' },
+    { icon: 'icon-shower', label: 'shower', key: 'shower' },
+  ];
 
 export const vehicleTypes = [
-    { icon: 'Van', label: 'Van' },
-    { icon: 'Fully-Integrated', label: 'Fully Integrated' },
-    { icon: 'Alcove', label: 'Alcove' }
+    { icon: 'Van', label: 'Van',key:"Van" },
+    { icon: 'Fully-Integrated', label: 'Fully Integrated',key:"Fully Integrated" },
+    { icon: 'Alcove', label: 'Alcove' ,key:"Alcove"}
 ];
 
 export const iconCard = [

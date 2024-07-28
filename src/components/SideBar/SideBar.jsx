@@ -1,12 +1,13 @@
 import React from 'react';
-import Input from "../Location/Location";
+import Location from "../Location/Location";
 import Filters from "../Filters/Filters";
+
 import css from "./SideBar.module.css";
 
 export default function SideBar({ onFilterChange }) {
     return (
-        <div className={css.sideBar}>
-            <Input />
+        <div className={css.sidebar}>
+            <Location/>
             <Filters onFilterChange={onFilterChange} />
         </div>
     );

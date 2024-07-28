@@ -46,30 +46,32 @@ export default function FeaturesItem({
             <div>
                 <h2 className={css.vehicleDetails}>Vehicle details</h2>
                 <table className={css.products}>
-                    <tr>
-                        <td>Form</td>
-                        <td>{form}</td>
-                    </tr>
-                    <tr>
-                        <td>Length</td>
-                        <td>{length}</td>
-                    </tr>
-                    <tr>
-                        <td>Width</td>
-                        <td>{width}</td>
-                    </tr>
-                    <tr>
-                        <td>Height</td>
-                        <td>{height}</td>
-                    </tr>
-                    <tr>
-                        <td>Tank</td>
-                        <td>{tank}</td>
-                    </tr>
-                    <tr>
-                        <td>Consumption</td>
-                        <td>{consumption}</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>Form</td>
+                            <td>{form}</td>
+                        </tr>
+                        <tr>
+                            <td>Length</td>
+                            <td>{length}</td>
+                        </tr>
+                        <tr>
+                            <td>Width</td>
+                            <td>{width}</td>
+                        </tr>
+                        <tr>
+                            <td>Height</td>
+                            <td>{height}</td>
+                        </tr>
+                        <tr>
+                            <td>Tank</td>
+                            <td>{tank}</td>
+                        </tr>
+                        <tr>
+                            <td>Consumption</td>
+                            <td>{consumption}</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

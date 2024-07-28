@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 
-export default function Input({ location }) {
+export default function Location({ location }) {
     const [inputValue, setInputValue] = useState("");
 
     useEffect(() => {

@@ -9,27 +9,30 @@ import {
     selectError,
     selectLoading,
     selectMoreToLoad,
-    selectPerPage
+    selectPerPage,
+    selectFilters
 } from '../../redux/catalog/selectors';
-import { incrementPage, setFilters } from '../../redux/catalog/slice';
+import { incrementPage} from '../../redux/catalog/slice';
 
 export default function Board({ filters }) {
     const dispatch = useDispatch();
-
+ 
     const catalogs = useSelector(selectCatalogs);
     const loading = useSelector(selectLoading);
     const error = useSelector(selectError);
     const currentPage = useSelector(selectCurrentPage);
     const perPage = useSelector(selectPerPage);
     const moreToLoad = useSelector(selectMoreToLoad);
-
+    const queryParams = useSelector(selectFilters);
+ 
     useEffect(() => {
         dispatch(fetchCatalogsPage({ page: currentPage, limit: perPage, filters }));
     }, [dispatch, currentPage, perPage, filters]);
-
+ 
     const handleLoadMore = () => {
         dispatch(fetchCatalogsPage({ page: currentPage, limit: perPage, filters }));
         dispatch(incrementPage());
+        dispatch(setFilters());
     };
 
     return (
@@ -53,3 +56,34 @@ export default function Board({ filters }) {
         </div>
     );
 }
+
+
+// import React from 'react';
+// import css from "./Board.module.css";
+// 
+// export default function Board({ filters }) {
+    // console.log("Filters in Board:", filters);
+    // 
+    // const data = [
+        // { name: 'Car1', equipment: ['kitchen', 'radio'] },
+        // { name: 'Car2', equipment: ['beds', 'microwave'] },
+        // { name: 'Car3', equipment: [ 'beds', 'Alcove'] },
+        // 
+    // ];
+// 
+//    
+    // const filteredData = data.filter(item =>
+        // filters.every(filter => item.equipment.includes(filter))
+    // );
+// 
+    // return (
+        // <div className={css.board}>
+            {/* {filteredData.map((item, index) => ( */}
+                // <div key={index} className={css.item}>
+                    {/* <h3>{item.name}</h3> */}
+                    {/* <p>Equipment: {item.equipment.join(', ')}</p> */}
+                {/* </div> */}
+            // ))}
+        {/* </div> */}
+    // );
+// }

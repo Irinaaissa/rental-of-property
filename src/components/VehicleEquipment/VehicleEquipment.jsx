@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import css from "./VehicleEquipment.module.css";
 import spritePath from '../../assets/react.svg'; // Переконайтеся, що шлях до SVG правильний
-import { equipmentList, vehicleTypes } from '../Helpers/equipmentList';
+import { equipmentList,equipmentFilterIcons, vehicleTypes } from '../Helpers/equipmentList';
 
 export default function VehicleEquipment({ onApplyFilters }) {
     const [selectedFilters, setSelectedFilters] = useState([]);
@@ -21,11 +21,11 @@ export default function VehicleEquipment({ onApplyFilters }) {
     };
 
     return (
-        <div>
-            <div>
+        <div  className={css.container}>
+            <div className={css.vehicleLabel}>
                 <p className={css.text}>Vehicle equipment</p>
                 <ul className={css.list}>
-                    {equipmentList.map((item, index) => (
+                    {equipmentFilterIcons.map((item, index) => (
                         <li key={index}>
                             <button
                                 className={`${css.listButton} ${selectedFilters.includes(item.label) ? css.selected : ''}`}
@@ -47,7 +47,8 @@ export default function VehicleEquipment({ onApplyFilters }) {
                         </li>
                     ))}
                 </ul> 
-
+                </div>
+                <div>
                 <p className={css.text}>Vehicle type</p>
                 <ul className={css.list}>
                     {vehicleTypes.map((type, index) => (
@@ -72,7 +73,7 @@ export default function VehicleEquipment({ onApplyFilters }) {
                         </li>
                     ))}
                 </ul>
-            </div>
+                </div>
             <button onClick={applyFilters} className={css.button}>
                Search
             </button>
